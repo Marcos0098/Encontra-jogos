@@ -1,0 +1,57 @@
+#navbar{
+    display: flex;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #262626;
+}
+
+#navbar h2 a{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+#navbar form{
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    gap: .4rem;
+}
+
+#navbar input{
+    width: 50%;
+    padding: .6rem .8rem;
+    border-radius: 4px;
+    border: none;
+    background-color: #ababab;
+    border: 1px solid #ababab;
+    transition: .6s;
+    border-radius: 1.2rem;
+}
+
+#navbar ::placeholder{
+    color: black;
+    font-weight: 550;
+}
+
+#navbar input:hover{
+    background-color: #f0f0f0;
+}
+
+#navbar form button{
+    background-color: #ababab;
+    color: #3c3c3c;
+    border: 2px #ababab;
+    border-radius: 4px;
+    padding: .3rem .4rem;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: .6s;
+}
+
+#navbar form button:hover{
+    background-color: #f0f0f0;
+    color: #151515;
+}

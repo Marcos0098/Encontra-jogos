@@ -1,0 +1,61 @@
+.container .title {
+    color: White;
+    font-size: 2.5rem;
+    text-align: center;
+    margin: 2rem 0 1rem;
+}
+
+.title .query-text {
+    color: aqua;
+}
+
+.games-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.games-container div{
+    width: 30%;
+    color: white;
+    margin-bottom: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #111;
+    padding: 1rem;
+}
+
+.games-container div img{
+    max-width: 100%;
+}
+
+.games-container div img,
+.games-container div h2,
+.games-container div p {
+    margin-bottom: 1rem;
+}
+
+.games-container div svg {
+    color: gold;
+}
+
+.games-container div a{
+    background-color: #ababab;
+    color: #3c3c3c;
+    border: 2px #ababab;
+    border-radius: 4px;
+    padding: 1rem .5rem;
+    align-items: center;
+    transition: .6s;
+    text-align: center;
+    font-weight: bold;
+}
+
+.games-container div a:hover{
+    background-color: #f0f0f0;
+    color: #151515;
+}
