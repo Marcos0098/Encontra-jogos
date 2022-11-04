@@ -14,6 +14,7 @@ const Home = () => {
     const res = await fetch(url)
     const data = await res.json()
     setTopGames(data.results);
+    console.log(data.results);
   };
 
   useEffect(() => {

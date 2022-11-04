@@ -21,7 +21,7 @@ const Search = () => {
   };
 
   useEffect(() => {
-    const searchedUrl = `${searchURL}${apiKey}&search_exact=${query}`;
+    const searchedUrl = `${searchURL}${apiKey}&search=${query}`;
 
     getSearchedGames(searchedUrl);
   },[query])
