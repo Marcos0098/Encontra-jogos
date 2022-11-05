@@ -5,7 +5,7 @@ import { FaStar } from "react-icons/fa";
 const GameCard = ({game, showLink = true}) => {
   return (
     <div className="game-card">
-        <img src={game.background_image} alt={game.slug} />
+        <img src={game.background_image} alt={game.name} />
         <h2>{game.name}</h2>
         <p>
             <FaStar/> {game.rating}

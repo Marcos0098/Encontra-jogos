@@ -15,17 +15,17 @@ const Game = () => {
   const getGame = async (url) =>{
     const res = await fetch(url);
     const data = await res.json();
-
-    setGame(data)
+    console.log(data);
+    setGame(data);
   }
   useEffect(()=>{
-    const gameUrl = `${gameURL}${apiKey}&id=${id}`;
+    const gameUrl = `${gameURL}?${apiKey}&${id}`;
     getGame(gameUrl);
-    console.log(gameUrl)
+    console.log(gameUrl);
   },[])
 
   return (
-    <div>
+    <div className="game-description">
       <p>TODO name, plataform, shot_screenshots, store, tags,background-image, metacritic</p>
     </div>
 

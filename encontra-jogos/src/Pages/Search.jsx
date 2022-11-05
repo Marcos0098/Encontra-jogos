@@ -18,10 +18,11 @@ const Search = () => {
     const data = await res.json()
 
     setGames(data.results);
+    console.log(data.results);
   };
 
   useEffect(() => {
-    const searchedUrl = `${searchURL}${apiKey}&search=${query}`;
+    const searchedUrl = `${searchURL}?${apiKey}&search=${query}`;
 
     getSearchedGames(searchedUrl);
   },[query])

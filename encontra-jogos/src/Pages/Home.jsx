@@ -14,12 +14,11 @@ const Home = () => {
     const res = await fetch(url)
     const data = await res.json()
     setTopGames(data.results);
-    console.log(data.results);
   };
 
   useEffect(() => {
-    const topRatedUrl = `${gamesURL}${apiKey}&page=1`;
-
+    const topRatedUrl = `${gamesURL}?${apiKey}&page=1`;
+    
     getTopRatedGames(topRatedUrl);
   },[])
 
