@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { FaStar } from "react-icons/fa";
 
 const GameCard = ({game, showLink = true}) => {
+
   return (
     <div className="game-card">
         <img src={game.background_image} alt={game.name} />
