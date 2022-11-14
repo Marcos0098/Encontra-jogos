@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
+
 import GameCard from "../components/GameCard";
 
 const searchURL = import.meta.env.VITE_API_GAMES;
