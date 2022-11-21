@@ -47,9 +47,6 @@ const Game = () => {
     console.log(dataGame)
   }
 
-
-
-
   useEffect(()=>{
     const gameUrl = `${gameURL}/${id}?${apiKey}`;
     const screenshotUrl = `${gameURL}/${id}/screenshots?${apiKey}`;
@@ -91,9 +88,7 @@ const Game = () => {
           game.tags.map((categorias) => <div>{categorias.name}</div>)}
         </h3>
 
-        <h3 className="info-description">
-          Description: {game.description_raw}
-        </h3>
+
 
         <h3 className="info-developers">
           Developers: {game.developers.length > 0 &&
