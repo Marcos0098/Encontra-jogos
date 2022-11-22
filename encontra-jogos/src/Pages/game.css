@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: row-reverse;
     margin: 8rem 12rem;
+    position: relative;
 }
 
 .game-card img{
@@ -28,22 +29,25 @@
 .about-game{
     margin: .5rem 0;
     margin-right: 5rem;
+    position: relative;
 }
 
 .about-game h3{
     font-size: 2.5rem;
     margin-bottom: .5rem;
+
 }
 
 .game-card .game-card-info .about-game .descricaoSemiOpen h4 {
     display:flex;
-    max-width: 100%;
+    width: 100%;
     font-size: 1.1rem;
     text-align:justify;
     font-weight: 200;
     height: 150px;
     overflow: hidden;
     transition: 1s;
+    
 }
 
 .game-card .game-card-info .about-game .descricaoSemiOpen::before{
@@ -51,7 +55,7 @@
     position: absolute;
     width: 100%;
     height: 150px;
-    background: linear-gradient(transparent, red);
+    background: linear-gradient(transparent, #151515);
 }
 
 .descricaoOpen h4{
