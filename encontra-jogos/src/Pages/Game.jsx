@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 import { useParams} from "react-router-dom";
 
-import GameCard from "../components/GameCard";
+
+
+import { FaStar } from 'react-icons/fa'
 
 import "./game.css";
 
@@ -13,6 +15,12 @@ const Game = () => {
   const [game, setGame] = useState(null);
   const [screenshot, setScreenshot] = useState(null)
   const [lojas, setLojas] = useState(null);
+
+  const [active, setMode] = useState(false);
+  const ToggleMode = () => {
+      setMode(!active);
+  };
+
 
   const idUrlStore = {
     idLoja : [],
@@ -59,41 +67,66 @@ const Game = () => {
     <div className="game-description">
       {game &&
       <>
-       <GameCard game={game} showLink={false}/>
-        <h3 className="info-genero">
-          Generos:{game.genres.length > 0 && game.genres.map((genero) => <div key={genero.id} className="generos">{genero.name}</div>)}
-        </h3>
-
-        <h3 className="info-plataforma">
-          Plataformas: {game.platforms.length > 0 &&
-          game.platforms.map((plataforma) => 
-          <div key={plataforma.platform.id}  className="plataformas">{plataforma.platform.name}</div>)}
-        </h3>
-
-        <h3 className="info-screenshot">
-          Screenshots: {screenshot.results.length > 0 &&
+      <div className="imagem-jogo">
+        <img src={game.background_image} alt={game.name} />
+        <p>Screenshots</p>
+        <div className="info-screenshot">
+          {screenshot.results.length > 0 &&
           screenshot.results.map((imagens) => 
           <div key={imagens.id} className="screenshots" ><img src={imagens.image}/></div>)}
-        </h3>
+        </div>
+      </div>
 
-        <h3 className="info-store">
-          Lojas: {game.stores.length > 0 && 
-          idUrlStore.idLoja.map((idSites, index) => 
-          <div key={idSites} className="Link-lojas"> <a href={idUrlStore.urlLoja[index]} target="_blank">{idUrlStore.nomeLoja[index]}</a> </div>
-          )}
-        </h3>
-        
-        <h3 className="info-tags">
-          Tags: {game.tags.length > 0 &&
-          game.tags.map((categorias) => <div>{categorias.name}</div>)}
-        </h3>
+      <div className="informacao-jogo">
+          <div className="nome-star">
+            <h2>{game.name}</h2>
+            <p>
+                  <FaStar/> {game.rating}
+            </p>
+          </div>
+
+          <div className="about-game">
+            <h3>About</h3>
+            <div className={active ? "descricaoOpen" : "descricaoSemiOpen" }>
+              <h4>{game.description_raw}</h4>
+            </div>
+            <button onClick={ToggleMode}>Show More</button>
+          </div>
+
+          <div className="detalhes-jogo">
+            <h3 className="detalhe-titulo"> Generos</h3>
+            
+            <p>{game.genres.length > 0 && game.genres.map((genero) => <div key={genero.id} className="generos">{genero.name}</div>)}</p>
+            <h3 className="detalhe-titulo">Plataformas</h3>
+            <p>{game.platforms.length > 0 &&
+            game.platforms.map((plataforma) => 
+            <div key={plataforma.platform.id}  className="plataformas">{plataforma.platform.name}</div>)}</p>
+          </div>
+
+
+          <h3 className="info-plataforma">
+            Plataformas: 
+          </h3>
 
 
 
-        <h3 className="info-developers">
-          Developers: {game.developers.length > 0 &&
-          game.developers.map((devs) => <div key={devs.id} className="devs">{devs.name}</div>)}
-        </h3>
+          <h3 className="info-store">
+            Lojas: {game.stores.length > 0 && 
+            idUrlStore.idLoja.map((idSites, index) => 
+            <div key={idSites} className="Link-lojas"> <a href={idUrlStore.urlLoja[index]} target="_blank">{idUrlStore.nomeLoja[index]}</a> </div>
+            )}
+          </h3>
+          
+          <h3 className="info-tags">
+            Tags: {game.tags.length > 0 &&
+            game.tags.map((categorias) => <div>{categorias.name}</div>)}
+          </h3>
+
+          <h3 className="info-developers">
+            Developers: {game.developers.length > 0 &&
+            game.developers.map((devs) => <div key={devs.id} className="devs">{devs.name}</div>)}
+          </h3>
+      </div>
       </>
       }
 
