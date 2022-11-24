@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams} from "react-router-dom";
-
+import ModalImage from "react-modal-image"
 import { FaStar } from 'react-icons/fa'
 
 import "./game.css";
@@ -51,6 +51,7 @@ const Game = () => {
     setLojas(dataLojas.results)
 
     console.log(dataGame)
+    console.log(dataScreen)
   }
 
   useEffect(()=>{
@@ -66,28 +67,32 @@ const Game = () => {
       {game &&
       <>
       <div className="imagem-jogo">
-        <img src={game.background_image} alt={game.name} />
-        <p>Screenshots</p>
+        <img className="imagem-principal-jogo" src={game.background_image} alt={game.name} />
+        <h3 className="detalhe-titulo-screenshot">Screenshots</h3>
         <div className="info-screenshot">
-          {screenshot.results.length > 0 &&
-          screenshot.results.map((imagens) => 
-          <div key={imagens.id} className="screenshots" ><img src={imagens.image}/></div>)}
-        </div>
+          {screenshot.results.length > 0 &&screenshot.results.map((imagens) => <div key={imagens.id} className="screenshots" >
 
-        <h3 className="info-store">
-            Lojas: {game.stores.length > 0 && 
-            idUrlStore.idLoja.map((idSites, index) => 
-            <div key={idSites} className="Link-lojas"> <a href={idUrlStore.urlLoja[index]} target="_blank">{idUrlStore.nomeLoja[index]}</a> </div>
-            )}
-          </h3>
+            <ModalImage
+            small={imagens.image}
+            medium={imagens.image}
+            large={imagens.image}
+            hideDownload={true}
+            hideZoom={true}
+            alt="Screenshots"/>
+
+          </div>)}
+      </div>
+
+        <div className="info-store">
+            <h3 className="detalhe-titulo">Onde Comprar</h3>
+            <div className="container-lojas">{game.stores.length > 0 && idUrlStore.idLoja.map((idSites, index) => <a key={idSites} className="link-lojas" href={idUrlStore.urlLoja[index]} target="_blank">{idUrlStore.nomeLoja[index]}</a>)}</div>
+        </div>
       </div>
 
       <div className="informacao-jogo">
           <div className="nome-star">
             <h2>{game.name}</h2>
-            <p>
-                  <FaStar/> {game.rating}
-            </p>
+            <p><FaStar/> {game.rating}</p>
           </div>
 
           <div className="about-game">
@@ -102,33 +107,33 @@ const Game = () => {
 
             <div className="container-detalhes">
               <h3 className="detalhe-titulo">Gêneros</h3>
-              <p>{game.genres.length > 0 && game.genres.map((genero) => <div key={genero.id} className="generos">{genero.name}</div>)}</p>
+              <div className="conteudo-detalhes">{game.genres.length > 0 && game.genres.map((genero) => <div key={genero.id} className="generos">{genero.name}</div>)}</div>
             </div>
 
             <div className="container-detalhes">
               <h3 className="detalhe-titulo">Data de Lançamento</h3>
-              <p>{game.released}</p>
+              <div className="conteudo-detalhes">{game.released}</div>
             </div>
 
             <div className="container-detalhes">
               <h3 className="detalhe-titulo">Desenvolvedores</h3>
-              <p>{game.developers.length > 0 && game.developers.map((desenvolvedores) => <div key={desenvolvedores.id}>{desenvolvedores.name}</div>)}</p>
+              <div className="conteudo-detalhes">{game.developers.length > 0 && game.developers.map((desenvolvedores) => <div key={desenvolvedores.id}>{desenvolvedores.name}</div>)}</div>
             </div>
 
             <div className="container-detalhes">
               <h3 className="detalhe-titulo">Publicadora</h3>
-              <p>{game.publishers.length > 0 && game.publishers.map((publicadoras) => <div key={publicadoras.id}>{publicadoras.name}</div>)}</p>
+              <div className="conteudo-detalhes">{game.publishers.length > 0 && game.publishers.map((publicadoras) => <div key={publicadoras.id}>{publicadoras.name}</div>)}</div>
             </div>
 
             <div className="container-detalhes">
               <h3 className="detalhe-titulo">Plataformas</h3>
-              <p>{game.platforms.length > 0 && game.platforms.map((plataforma) => <div key={plataforma.platform.id}  className="plataformas">{plataforma.platform.name}</div>)}</p>        
+              <div className="conteudo-detalhes">{game.platforms.length > 0 && game.platforms.map((plataforma) => <div key={plataforma.platform.id}  className="plataformas">{plataforma.platform.name}</div>)}</div>        
             </div>
 
           </div>
           <div className="container-detalhes-tags">
               <h3 className="detalhe-titulo">Tags</h3>
-              <p>{game.tags.length > 0 && game.tags.map((categorias) => <div key={categorias.id}>{categorias.name}</div>)}</p>
+              <div className="conteudo-detalhes-tags">{game.tags.length > 0 && game.tags.map((categorias) => <div key={categorias.id}>{categorias.name}</div>)}</div>
             </div>
       </div>
       </>

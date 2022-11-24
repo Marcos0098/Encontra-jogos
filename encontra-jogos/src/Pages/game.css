@@ -13,16 +13,10 @@
     margin-right: 14%;
 }
 
-.imagem-jogo img{
+.imagem-principal-jogo{
     border-radius: 5px;
     max-width: 500px;
     max-height: 348px;
-}
-
-.imagem-jogo p {
-    font-size: 30px;
-    text-align: center;
-    margin: 25px 0 10px 0;
 }
 
 .info-screenshot{
@@ -33,16 +27,25 @@
     justify-content: space-between;
 }
 
-.info-screenshot img{
-    max-width: 150px;
+.screenshots{
+    width: 160px;
 }
+  
+.detalhe-titulo-screenshot {
+    font-size: 30px;
+    text-align: center;
+    margin: 25px 0 10px 0;
+    color: darkslateblue;
+}
+
+
 
 .informacao-jogo{
     display: flex;
     flex-direction: column;
     max-width: 100%;
     margin-top: 7%;
-    margin-left: 30%;
+    margin-left: 25%;
     margin-right: 2%;
 }
 
@@ -51,13 +54,6 @@
     font-size: 60px;
     color: #eeeeee;
     padding-right: 5%;
-}
-
-.informacao-jogo p{
-    display: flex;
-    padding-right: 5%;
-    font-size: 1.5rem;
-    color: yellow;
 }
 
 .about-game{
@@ -94,7 +90,7 @@
     width: 100%;
     height: 50%;
     background: linear-gradient(transparent, #151515);
-    transition: .75s;
+    transition: .70s;
 }
 
 .descricaoOpen{
@@ -120,39 +116,49 @@
 }
 
 .about-game button{
+    width: 100px;
+    height: 30px;
     font-size: 1.1rem;
     font-weight: 300;
     border-style:none;
     color: #151515;
     background-color: cyan;
-    width: 100px;
-    height: 30px;
+    border-radius: 10px;
     cursor: pointer;
     margin-top: 10px;
+    transition: .7s;
 }
 
-
-
 .detalhes-jogo{
-    max-width: 100%;
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
 }
 
 .container-detalhes{
-    width: 45%;
+    width: 40%;
     display: flex;
+    margin: 10px 0;
     flex-direction: column;
-    margin: 10px;
 }
+
+.conteudo-detalhes{
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 16px;
+    text-decoration:underline 1.5px grey;
+    color: #eeeeee;
+    gap: 10px;
+}
+
 
 .container-detalhes-tags{
     display: flex;
     flex-direction: column;
-    margin: 10px;
+    margin: 10px 0;
 }
 
-.container-detalhes-tags p{
+.conteudo-detalhes-tags{
     display: flex;
     flex-wrap: wrap;
     font-size: 16px;
@@ -167,9 +173,29 @@
     color: darkslateblue;
 }
 
-.detalhes-jogo p{
-    font-size: 16px;
-    text-decoration:underline grey;
-    color: #eeeeee;
+
+.info-store h3{
+    font-size: 30px;
+    text-align: center;
+    margin: 10px 0;
+}
+
+.container-lojas{
+    font-size: 20px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
     gap: 10px;
+}
+
+.link-lojas{
+    width: 40%;
+    border-radius: 10px;
+    padding: 8px;
+    text-align: center;
+    background-color: #2D2D2D;
+}
+
+.link-lojas {
+    color: #969690;
 }
